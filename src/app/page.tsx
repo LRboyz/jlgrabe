@@ -174,11 +174,11 @@ export default function HomePage() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10">
                     <UserIcon className="text-emerald-300" />
                   </div>
-                  <div className="text-right">
-                    <div className="glow-text bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-300 bg-clip-text text-xl font-bold text-transparent drop-shadow-lg sm:text-2xl">
+                  <div className="flex items-center space-x-2">
+                    <div className="glow-text bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-300 bg-clip-text text-lg font-bold text-transparent drop-shadow-lg sm:text-2xl">
                       300,631
                     </div>
-                    <div className="text-xs font-medium tracking-wider text-emerald-300/80 uppercase">
+                    <div className="text-xs font-medium tracking-wider whitespace-nowrap text-emerald-300/80 uppercase">
                       Online Users
                     </div>
                   </div>
@@ -199,11 +199,11 @@ export default function HomePage() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10">
                     <CgWebsite className="text-xl text-blue-300 sm:text-2xl" />
                   </div>
-                  <div className="text-right">
-                    <div className="glow-text bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-xl font-bold text-transparent drop-shadow-lg sm:text-2xl">
+                  <div className="flex items-center space-x-2">
+                    <div className="glow-text bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-lg font-bold text-transparent drop-shadow-lg sm:text-2xl">
                       10/10
                     </div>
-                    <div className="text-xs font-medium tracking-wider text-cyan-300/80 uppercase">
+                    <div className="text-xs font-medium tracking-wider whitespace-nowrap text-cyan-300/80 uppercase">
                       Available Sites
                     </div>
                   </div>
