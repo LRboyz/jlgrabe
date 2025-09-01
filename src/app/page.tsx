@@ -8,6 +8,9 @@ import { toast } from "react-hot-toast";
 
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 export default function HomePage() {
+  // 添加弹框状态管理
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
+
   const [sites, setSites] = useState([
     {
       domain: "jlgrabe111.COM",
@@ -214,7 +217,10 @@ export default function HomePage() {
 
         {/* Feature Cards */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <div className="card-hover rounded-xl bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md">
+          <div
+            onClick={() => window.location.replace("https://jlgrabe111.com")}
+            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-pink-500"
+          >
             <div className="flex items-center space-x-4">
               <div className="text-3xl drop-shadow-lg">🎁</div>
               <div>
@@ -229,7 +235,10 @@ export default function HomePage() {
             <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-60"></div>
           </div>
 
-          <div className="card-hover rounded-xl bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md">
+          <div
+            onClick={() => window.location.replace("https://jlgrabe222.com")}
+            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-blue-400"
+          >
             <div className="flex items-center space-x-4">
               <div className="text-3xl drop-shadow-lg">💬</div>
               <div>
@@ -244,7 +253,10 @@ export default function HomePage() {
             <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 opacity-60"></div>
           </div>
 
-          <div className="card-hover rounded-xl bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md">
+          <div
+            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-emerald-400"
+            onClick={() => setShowDownloadModal(true)}
+          >
             <div className="flex items-center space-x-4">
               <div className="text-3xl drop-shadow-lg">📱</div>
               <div>
@@ -258,11 +270,86 @@ export default function HomePage() {
             </div>
             <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-green-500 to-emerald-500 opacity-60"></div>
           </div>
+          {/* Download Modal */}
+          {showDownloadModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+              <div className="relative mx-4 w-full max-w-md rounded-2xl border border-gray-600 bg-zinc-900 p-6 shadow-2xl">
+                {/* 关闭按钮 */}
+                <button
+                  onClick={() => setShowDownloadModal(false)}
+                  className="absolute top-4 right-4 cursor-pointer text-gray-400 transition-colors hover:text-white"
+                >
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
 
-          <div className="card-hover rounded-xl bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md">
-            <div className="flex items-center space-x-4">
+                {/* 标题 */}
+                <div className="mb-6 text-center">
+                  <h2 className="text-xl font-bold text-white">扫码下载APP</h2>
+                </div>
+
+                {/* 二维码区域 */}
+                <div className="flex justify-center space-x-6">
+                  {/* iOS APP */}
+                  <div className="flex flex-col items-center space-y-3">
+                    <div className="rounded-lg bg-white p-3">
+                      <Image
+                        src="/qr.png"
+                        alt="iOS QR Code"
+                        width={96}
+                        height={96}
+                        className="rounded"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <div className="font-semibold text-white">iOS APP</div>
+                      <div className="text-sm text-gray-400">iPhone / iPad</div>
+                    </div>
+                  </div>
+
+                  {/* Android APP */}
+                  <div className="flex flex-col items-center space-y-3">
+                    <div className="rounded-lg bg-white p-3">
+                      <Image
+                        src="/qr.png"
+                        alt="iOS QR Code"
+                        width={96}
+                        height={96}
+                        className="rounded"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <div className="font-semibold text-white">
+                        Android APP
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        Android mobile / tablet
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div
+            onClick={() => window.location.replace("https://jlgrabe333.com")}
+            className="card-hover cursor-pointer rounded-xl bg-[url('/bg.png')] bg-cover bg-left bg-no-repeat p-6 opacity-80 shadow-lg backdrop-blur-md transition-all duration-300 hover:opacity-100"
+          >
+            <div className="flex items-center justify-between space-x-4">
               <div className="text-3xl drop-shadow-lg">✨</div>
-              <div>
+              <div className="">
                 <div className="text-lg font-bold text-white drop-shadow-sm">
                   Register Now
                 </div>
