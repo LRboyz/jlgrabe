@@ -136,7 +136,7 @@ export default function HomePage() {
 
             return (
               <div
-                key={i} // 使用索引作为key
+                key={i}
                 className="absolute h-1 w-1 animate-pulse rounded-full bg-white opacity-30"
                 style={{
                   left: `${randomX}%`,
@@ -150,30 +150,32 @@ export default function HomePage() {
         </div>
       )}
 
-      <div className="relative z-10 container mx-auto p-6">
-        {/* Header */}
-        <header className="mb-8 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+      <div className="relative z-10 container mx-auto p-4 sm:p-6">
+        {/* Header - 移动端优化 */}
+        <header className="mb-6 sm:mb-8">
+          {/* LOGO - 移动端居中显示 */}
+          <div className="mb-4 flex justify-center sm:mb-6 sm:justify-start">
             <Image
               src="/logo-title.png"
               alt="8JL.COM"
-              width={260}
-              height={40}
+              width={240}
+              height={24}
               className="drop-shadow-lg"
             />
           </div>
 
-          <div className="flex items-center space-x-12">
+          {/* 统计卡片 - 移动端堆叠布局 */}
+          <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-end sm:space-y-0 sm:space-x-6 lg:space-x-12">
             {/* 在线用户统计 */}
             <div className="group relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-emerald-500/20 via-green-500/20 to-emerald-500/20 opacity-75 blur-sm transition-all duration-300 group-hover:opacity-100 group-hover:blur-md"></div>
-              <div className="relative rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-emerald-800/20 px-6 py-4 backdrop-blur-sm transition-all duration-300 group-hover:border-emerald-400/50">
+              <div className="relative rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-emerald-800/20 px-4 py-3 backdrop-blur-sm transition-all duration-300 group-hover:border-emerald-400/50 sm:px-6 sm:py-4">
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10">
                     <UserIcon className="text-emerald-300" />
                   </div>
                   <div className="text-right">
-                    <div className="glow-text bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-300 bg-clip-text text-2xl font-bold text-transparent drop-shadow-lg">
+                    <div className="glow-text bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-300 bg-clip-text text-xl font-bold text-transparent drop-shadow-lg sm:text-2xl">
                       300,631
                     </div>
                     <div className="text-xs font-medium tracking-wider text-emerald-300/80 uppercase">
@@ -192,13 +194,13 @@ export default function HomePage() {
             {/* 可用站点统计 */}
             <div className="group relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-cyan-500/20 opacity-75 blur-sm transition-all duration-300 group-hover:opacity-100 group-hover:blur-md"></div>
-              <div className="relative rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-cyan-800/20 px-6 py-4 backdrop-blur-sm transition-all duration-300 group-hover:border-cyan-400/50">
+              <div className="relative rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-cyan-800/20 px-4 py-3 backdrop-blur-sm transition-all duration-300 group-hover:border-cyan-400/50 sm:px-6 sm:py-4">
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full">
-                    <CgWebsite className="text-2xl text-blue-300" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10">
+                    <CgWebsite className="text-xl text-blue-300 sm:text-2xl" />
                   </div>
                   <div className="text-right">
-                    <div className="glow-text bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-2xl font-bold text-transparent drop-shadow-lg">
+                    <div className="glow-text bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-xl font-bold text-transparent drop-shadow-lg sm:text-2xl">
                       10/10
                     </div>
                     <div className="text-xs font-medium tracking-wider text-cyan-300/80 uppercase">
@@ -215,72 +217,73 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* Feature Cards */}
-        <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {/* Feature Cards - 移动端优化 */}
+        <div className="mb-6 grid grid-cols-1 gap-3 sm:mb-8 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           <div
             onClick={() => window.location.replace("https://jlgrabe111.com")}
-            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-pink-500"
+            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-4 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-pink-500 sm:p-6"
           >
-            <div className="flex items-center space-x-4">
-              <div className="text-3xl drop-shadow-lg">🎁</div>
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <div className="text-2xl drop-shadow-lg sm:text-3xl">🎁</div>
               <div>
-                <div className="text-lg font-bold text-white drop-shadow-sm">
+                <div className="text-base font-bold text-white drop-shadow-sm sm:text-lg">
                   Promotions Center
                 </div>
-                <div className="mt-1 text-sm text-zinc-300">
+                <div className="mt-1 text-xs text-zinc-300 sm:text-sm">
                   Rich rewards await you
                 </div>
               </div>
             </div>
-            <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-60"></div>
+            <div className="mt-3 h-1 w-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-60 sm:mt-4"></div>
           </div>
 
           <div
             onClick={() => window.location.replace("https://jlgrabe222.com")}
-            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-blue-400"
+            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-4 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-blue-400 sm:p-6"
           >
-            <div className="flex items-center space-x-4">
-              <div className="text-3xl drop-shadow-lg">💬</div>
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <div className="text-2xl drop-shadow-lg sm:text-3xl">💬</div>
               <div>
-                <div className="text-lg font-bold text-white drop-shadow-sm">
+                <div className="text-base font-bold text-white drop-shadow-sm sm:text-lg">
                   Customer Service
                 </div>
-                <div className="mt-1 text-sm text-zinc-300">
+                <div className="mt-1 text-xs text-zinc-300 sm:text-sm">
                   24/7 Online Service
                 </div>
               </div>
             </div>
-            <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 opacity-60"></div>
+            <div className="mt-3 h-1 w-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 opacity-60 sm:mt-4"></div>
           </div>
 
           <div
-            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-emerald-400"
+            className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-4 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-emerald-400 sm:p-6"
             onClick={() => setShowDownloadModal(true)}
           >
-            <div className="flex items-center space-x-4">
-              <div className="text-3xl drop-shadow-lg">📱</div>
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <div className="text-2xl drop-shadow-lg sm:text-3xl">📱</div>
               <div>
-                <div className="text-lg font-bold text-white drop-shadow-sm">
+                <div className="text-base font-bold text-white drop-shadow-sm sm:text-lg">
                   Download APP
                 </div>
-                <div className="mt-1 text-sm text-zinc-300">
+                <div className="mt-1 text-xs text-zinc-300 sm:text-sm">
                   Get our mobile app
                 </div>
               </div>
             </div>
-            <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-green-500 to-emerald-500 opacity-60"></div>
+            <div className="mt-3 h-1 w-full rounded-full bg-gradient-to-r from-green-500 to-emerald-500 opacity-60 sm:mt-4"></div>
           </div>
-          {/* Download Modal */}
+
+          {/* Download Modal - 移动端优化 */}
           {showDownloadModal && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-              <div className="relative mx-4 w-full max-w-md rounded-2xl border border-gray-600 bg-zinc-900 p-6 shadow-2xl">
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
+              <div className="relative w-full max-w-sm rounded-2xl border border-gray-600 bg-zinc-900 p-4 shadow-2xl sm:max-w-md sm:p-6">
                 {/* 关闭按钮 */}
                 <button
                   onClick={() => setShowDownloadModal(false)}
-                  className="absolute top-4 right-4 cursor-pointer text-gray-400 transition-colors hover:text-white"
+                  className="absolute top-3 right-3 cursor-pointer text-gray-400 transition-colors hover:text-white sm:top-4 sm:right-4"
                 >
                   <svg
-                    className="h-6 w-6"
+                    className="h-5 w-5 sm:h-6 sm:w-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -295,45 +298,51 @@ export default function HomePage() {
                 </button>
 
                 {/* 标题 */}
-                <div className="mb-6 text-center">
-                  <h2 className="text-xl font-bold text-white">扫码下载APP</h2>
+                <div className="mb-4 text-center sm:mb-6">
+                  <h2 className="text-lg font-bold text-white sm:text-xl">
+                    扫码下载APP
+                  </h2>
                 </div>
 
-                {/* 二维码区域 */}
-                <div className="flex justify-center space-x-6">
+                {/* 二维码区域 - 移动端优化 */}
+                <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6">
                   {/* iOS APP */}
-                  <div className="flex flex-col items-center space-y-3">
-                    <div className="rounded-lg bg-white p-3">
+                  <div className="flex flex-col items-center space-y-2 sm:space-y-3">
+                    <div className="rounded-lg bg-white p-2 sm:p-3">
                       <Image
                         src="/qr.png"
                         alt="iOS QR Code"
-                        width={96}
-                        height={96}
-                        className="rounded"
+                        width={80}
+                        height={80}
+                        className="rounded sm:h-24 sm:w-24"
                       />
                     </div>
                     <div className="text-center">
-                      <div className="font-semibold text-white">iOS APP</div>
-                      <div className="text-sm text-gray-400">iPhone / iPad</div>
+                      <div className="text-sm font-semibold text-white sm:text-base">
+                        iOS APP
+                      </div>
+                      <div className="text-xs text-gray-400 sm:text-sm">
+                        iPhone / iPad
+                      </div>
                     </div>
                   </div>
 
                   {/* Android APP */}
-                  <div className="flex flex-col items-center space-y-3">
-                    <div className="rounded-lg bg-white p-3">
+                  <div className="flex flex-col items-center space-y-2 sm:space-y-3">
+                    <div className="rounded-lg bg-white p-2 sm:p-3">
                       <Image
                         src="/qr.png"
-                        alt="iOS QR Code"
-                        width={96}
-                        height={96}
-                        className="rounded"
+                        alt="Android QR Code"
+                        width={80}
+                        height={80}
+                        className="rounded sm:h-24 sm:w-24"
                       />
                     </div>
                     <div className="text-center">
-                      <div className="font-semibold text-white">
+                      <div className="text-sm font-semibold text-white sm:text-base">
                         Android APP
                       </div>
-                      <div className="text-sm text-gray-400">
+                      <div className="text-xs text-gray-400 sm:text-sm">
                         Android mobile / tablet
                       </div>
                     </div>
@@ -345,50 +354,54 @@ export default function HomePage() {
 
           <div
             onClick={() => window.location.replace("https://jlgrabe333.com")}
-            className="card-hover cursor-pointer rounded-xl bg-[url('/bg.png')] bg-cover bg-left bg-no-repeat p-6 opacity-80 shadow-lg backdrop-blur-md transition-all duration-300 hover:opacity-100"
+            className="card-hover cursor-pointer rounded-xl bg-[url('/bg.png')] bg-cover bg-left bg-no-repeat p-4 opacity-80 shadow-lg backdrop-blur-md transition-all duration-300 hover:opacity-100 sm:p-6"
           >
-            <div className="flex items-center justify-between space-x-4">
-              <div className="text-3xl drop-shadow-lg">✨</div>
+            <div className="flex items-center justify-between space-x-3 sm:space-x-4">
+              <div className="text-2xl drop-shadow-lg sm:text-3xl">✨</div>
               <div className="">
-                <div className="text-lg font-bold text-white drop-shadow-sm">
+                <div className="text-base font-bold text-white drop-shadow-sm sm:text-lg">
                   Register Now
                 </div>
-                <div className="mt-1 text-sm text-zinc-300">Join us today</div>
+                <div className="mt-1 text-xs text-zinc-300 sm:text-sm">
+                  Join us today
+                </div>
               </div>
             </div>
-            <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 opacity-60"></div>
+            <div className="mt-3 h-1 w-full rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 opacity-60 sm:mt-4"></div>
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="rounded-xl border border-zinc-600/50 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-6 shadow-2xl backdrop-blur-md">
-          <div className="mb-6 flex items-center justify-between">
+        {/* Main Content - 移动端优化 */}
+        <div className="rounded-xl border border-zinc-600/50 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-4 shadow-2xl backdrop-blur-md sm:p-6">
+          <div className="mb-4 flex flex-col space-y-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
             <div className="flex items-center space-x-2">
-              <div className="text-xl text-orange-400 drop-shadow-lg">🚀</div>
-              <h2 className="text-xl font-bold text-amber-500 drop-shadow-sm">
+              <div className="text-lg text-orange-400 drop-shadow-lg sm:text-xl">
+                🚀
+              </div>
+              <h2 className="text-lg font-bold text-amber-500 drop-shadow-sm sm:text-xl">
                 Official Entry
               </h2>
             </div>
-            {/* 修复刷新按钮 */}
+            {/* 刷新按钮 - 移动端优化 */}
             <button
               onClick={refreshAllSites}
-              className="flex cursor-pointer items-center space-x-2 rounded-lg border border-yellow-400 px-4 py-2 text-sm text-white transition-all duration-300 hover:scale-105 hover:bg-yellow-900/20 hover:from-zinc-600 hover:to-zinc-500 hover:text-white hover:shadow-lg"
+              className="flex cursor-pointer items-center justify-center space-x-2 rounded-lg border border-yellow-400 px-3 py-2 text-xs text-white transition-all duration-300 hover:scale-105 hover:bg-yellow-900/20 hover:shadow-lg sm:px-4 sm:text-sm"
             >
-              <RefreshCcw className="h-4 w-4" />
+              <RefreshCcw className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="font-medium">Refresh Speed Test</span>
             </button>
           </div>
-          {/* Site Grid */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {/* Site Grid - 移动端优化 */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {sites.map((site, index) => {
               const pingValue = site.isLoading ? 0 : parseInt(site.ping);
 
               return (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-zinc-800/90 via-zinc-900/95 to-black/70 p-4 shadow-xl backdrop-blur-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20"
+                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-zinc-800/90 via-zinc-900/95 to-black/70 p-3 shadow-xl backdrop-blur-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20 sm:p-4"
                 >
-                  {/* 优雅的背景装饰 */}
+                  {/* ... existing code ... */}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-transparent to-cyan-600/5" />
                   <div className="absolute -top-10 -right-10 h-20 w-20 rounded-full bg-gradient-to-br from-purple-500/10 to-cyan-500/10 blur-2xl transition-all duration-700 group-hover:scale-150" />
 
@@ -396,10 +409,10 @@ export default function HomePage() {
                   <div className="absolute top-0 right-0 left-0 h-0.5 bg-gradient-to-r from-amber-600 to-yellow-500" />
 
                   <div className="relative z-10">
-                    {/* 域名和状态 */}
-                    <div className="mb-3 flex items-start justify-between">
+                    {/* 域名和状态 - 移动端优化 */}
+                    <div className="mb-2 flex items-start justify-between sm:mb-3">
                       <div className="flex-1">
-                        <div className="glow-text mb-2 bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-lg font-bold text-transparent">
+                        <div className="glow-text mb-1 bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-base font-bold text-transparent sm:mb-2 sm:text-lg">
                           {site.domain}
                         </div>
                         <div className="flex items-center space-x-2">
@@ -435,10 +448,10 @@ export default function HomePage() {
                       <button
                         onClick={() => simulateRequest(index)}
                         disabled={site.isLoading}
-                        className="group/refresh rounded-lg p-1.5 text-slate-400 transition-all duration-300 hover:bg-slate-700/50 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="group/refresh rounded-lg p-1 text-slate-400 transition-all duration-300 hover:bg-slate-700/50 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-50 sm:p-1.5"
                       >
                         <svg
-                          className={`h-4 w-4 transition-transform duration-300 ${
+                          className={`h-3 w-3 transition-transform duration-300 sm:h-4 sm:w-4 ${
                             site.isLoading
                               ? "animate-spin"
                               : "group-hover/refresh:rotate-180"
@@ -457,8 +470,8 @@ export default function HomePage() {
                       </button>
                     </div>
 
-                    {/* 延迟和路由信息 */}
-                    <div className="mb-4 flex items-center justify-between">
+                    {/* 延迟和路由信息 - 移动端优化 */}
+                    <div className="mb-3 flex items-center justify-between sm:mb-4">
                       <div className="flex items-center space-x-1">
                         {site.isLoading ? (
                           <div className="flex items-center space-x-1">
@@ -468,7 +481,7 @@ export default function HomePage() {
                           </div>
                         ) : (
                           <span
-                            className={`text-2xl font-bold ${
+                            className={`text-xl font-bold sm:text-2xl ${
                               pingValue < 300
                                 ? "text-emerald-400"
                                 : pingValue < 400
@@ -479,11 +492,13 @@ export default function HomePage() {
                             {site.ping}
                           </span>
                         )}
-                        <span className="text-sm text-slate-400">ms</span>
+                        <span className="text-xs text-slate-400 sm:text-sm">
+                          ms
+                        </span>
                       </div>
                     </div>
 
-                    {/* 按钮组 */}
+                    {/* 按钮组 - 移动端优化 */}
                     <div className="flex space-x-2">
                       <button
                         className="group/btn relative flex flex-1 cursor-pointer items-center justify-center space-x-1 overflow-hidden rounded-lg bg-gradient-to-r from-amber-500 to-yellow-600 p-2 font-bold text-white shadow-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25"
@@ -493,17 +508,21 @@ export default function HomePage() {
                         }
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" />
-                        <span className="relative z-10 text-sm">🚀</span>
-                        <span className="relative z-10 text-sm">Enter</span>
+                        <span className="relative z-10 text-xs sm:text-sm">
+                          🚀
+                        </span>
+                        <span className="relative z-10 text-xs sm:text-sm">
+                          Enter
+                        </span>
                         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
                       </button>
 
                       <button
                         onClick={() => simulateRequest(index)}
-                        className="group/test flex cursor-pointer items-center space-x-1 rounded-lg border border-slate-500/30 bg-gradient-to-r from-slate-700/80 via-slate-600/80 to-slate-700/80 px-3 py-2 text-white backdrop-blur-sm transition-all duration-300 hover:border-slate-400/50 hover:shadow-lg hover:shadow-slate-500/25"
+                        className="group/test flex cursor-pointer items-center space-x-1 rounded-lg border border-slate-500/30 bg-gradient-to-r from-slate-700/80 via-slate-600/80 to-slate-700/80 px-2 py-2 text-white backdrop-blur-sm transition-all duration-300 hover:border-slate-400/50 hover:shadow-lg hover:shadow-slate-500/25 sm:px-3"
                         disabled={site.isLoading}
                       >
-                        <span className="text-sm transition-transform duration-300 group-hover/test:scale-110">
+                        <span className="text-xs transition-transform duration-300 group-hover/test:scale-110 sm:text-sm">
                           📊
                         </span>
                         <span className="text-xs font-medium">Test</span>
@@ -516,47 +535,47 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Announcement Section */}
-        <div className="mt-8 rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-900/20 via-amber-900/10 to-orange-800/20 p-6 shadow-2xl backdrop-blur-md">
-          <div className="mb-4 flex items-center space-x-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500/20 to-amber-500/20">
-              <span className="text-xl">📢</span>
+        {/* Announcement Section - 移动端优化 */}
+        <div className="mt-6 rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-900/20 via-amber-900/10 to-orange-800/20 p-4 shadow-2xl backdrop-blur-md sm:mt-8 sm:p-6">
+          <div className="mb-3 flex items-center space-x-3 sm:mb-4">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500/20 to-amber-500/20 sm:h-10 sm:w-10">
+              <span className="text-lg sm:text-xl">📢</span>
             </div>
-            <h2 className="bg-gradient-to-r from-orange-300 via-amber-400 to-orange-300 bg-clip-text text-xl font-bold text-transparent drop-shadow-sm">
+            <h2 className="bg-gradient-to-r from-orange-300 via-amber-400 to-orange-300 bg-clip-text text-lg font-bold text-transparent drop-shadow-sm sm:text-xl">
               Important Announcement
             </h2>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-sm leading-relaxed text-zinc-300">
+              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
                 Download the APP and receive free 298 rewards!
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-sm leading-relaxed text-zinc-300">
+              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
                 Participate in the jlgrabe Referral Program and receive free
                 bonuses
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-sm leading-relaxed text-zinc-300">
+              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
                 Daily first deposit bonus 10%
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-sm leading-relaxed text-zinc-300">
+              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
                 New members of jlgrabe register and recharge on the same day,
                 and log in 24/7 days to receive the login bonus
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-sm leading-relaxed text-zinc-300">
+              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
                 More activities, please enter the official website activity page
                 for more information
               </p>
@@ -565,19 +584,19 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="relative z-10 mt-12 border-t border-zinc-700/50 bg-gradient-to-br from-zinc-900/80 to-zinc-900/80 backdrop-blur-md">
-        <div className="container mx-auto px-6 py-8">
-          <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
+      {/* Footer - 移动端优化 */}
+      <footer className="relative z-10 mt-8 border-t border-zinc-700/50 bg-gradient-to-br from-zinc-900/80 to-zinc-900/80 backdrop-blur-md sm:mt-12">
+        <div className="container mx-auto px-4 py-6 sm:px-6 sm:py-8">
+          <div className="flex flex-col items-center justify-between space-y-3 sm:flex-row sm:space-y-0 md:space-y-0">
             {/* Copyright */}
             <div className="text-center md:text-left">
-              <p className="text-sm text-zinc-400">
+              <p className="text-xs text-zinc-400 sm:text-sm">
                 © 2025 jlgrabe.COM. All rights reserved.
               </p>
             </div>
 
             {/* Footer Links */}
-            <div className="flex flex-wrap items-center justify-center space-x-6 text-sm">
+            <div className="flex flex-wrap items-center justify-center space-x-4 text-xs sm:space-x-6 sm:text-sm">
               <p
                 onClick={() =>
                   toast("About us will be available soon!", {
@@ -618,7 +637,7 @@ export default function HomePage() {
           </div>
 
           {/* Decorative Line */}
-          <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-zinc-600/50 to-transparent"></div>
+          <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-zinc-600/50 to-transparent sm:mt-6"></div>
         </div>
       </footer>
     </div>
