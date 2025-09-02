@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-
+import { Analytics } from "@vercel/analytics/next";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Toaster } from "react-hot-toast";
@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable}`}>
       <body>
         {children}
+        <Analytics />
         <Toaster position="top-right" />
       </body>
     </html>
