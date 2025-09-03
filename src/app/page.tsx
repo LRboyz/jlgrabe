@@ -176,7 +176,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="glow-text bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-300 bg-clip-text text-lg font-bold text-transparent drop-shadow-lg sm:text-2xl">
-                      300,631
+                      98,430
                     </div>
                     <div className="text-xs font-medium tracking-wider whitespace-nowrap text-emerald-300/80 uppercase">
                       Online Users
@@ -545,37 +545,46 @@ export default function HomePage() {
               Important Announcement
             </h2>
           </div>
-
           <div className="space-y-2 sm:space-y-3">
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
-                Download the APP and receive free 298 rewards!
+              <p className="text-xs leading-relaxed text-gray-300 sm:text-sm">
+                1. Download the APP and Claim up to 777P Bonus instantly
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
-                Participate in the jlgrabe Referral Program and receive free
-                bonuses
+              <p className="text-xs leading-relaxed text-gray-300 sm:text-sm">
+                2. Share and Earn，Referral Bonus + Topup Commission +
+                Cumulative Invite Friend
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
-                Daily first deposit bonus 10%
+              <p className="text-xs leading-relaxed text-gray-300 sm:text-sm">
+                3. Deposit up to 5 times & unlock a total of 345% Bonus
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
-                New members of jlgrabe register and recharge on the same day,
-                and log in 24/7 days to receive the login bonus
+              <p className="text-xs leading-relaxed text-gray-300 sm:text-sm">
+                4. Daily First Deposit Get up to 555P
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
-              <p className="text-xs leading-relaxed text-zinc-300 sm:text-sm">
+              <p className="text-xs leading-relaxed text-gray-300 sm:text-sm">
+                5. 15 Red Envelopes Per Day bonus up to 12899P
+              </p>
+            </div>
+            <div className="flex items-start space-x-3">
+              <div className="mt-1.5 h-2 w-2 rounded-full bg-orange-400 shadow-sm"></div>
+              <p className="text-xs leading-relaxed text-gray-300 sm:text-sm">
+                6. Sign In 15 Days & Claim up to P1646 Bonus!
+              </p>
+            </div>
+            <div className="flex items-start space-x-3">
+              <p className="text-xs leading-relaxed text-gray-300 sm:text-sm">
                 More activities, please enter the official website activity page
                 for more information
               </p>
