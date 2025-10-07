@@ -11,6 +11,25 @@ export default function HomePage() {
   // 添加弹框状态管理
   const [showDownloadModal, setShowDownloadModal] = useState(false);
 
+  // 可用域名列表
+  const availableDomains = [
+    "https://jlgrabe111.com",
+    "https://jlgrabe222.com",
+    "https://jlgrabe333.com",
+    "https://jlgrabe444.com",
+    "https://jlgrabe555.com",
+    "https://jlgrabe666.com",
+    "https://jlgrabe777.com",
+    "https://jlgrabe888.com",
+    "https://jlgrabe999.com",
+  ];
+
+  // 随机选择域名的函数
+  const getRandomDomain = (): string => {
+    const randomIndex = Math.floor(Math.random() * availableDomains.length);
+    return availableDomains[randomIndex]!;
+  };
+
   const [sites, setSites] = useState([
     {
       domain: "jlgrabe111.COM",
@@ -95,12 +114,12 @@ export default function HomePage() {
         prev.map((site, i) =>
           i === index
             ? {
-                ...site,
-                ping: newPing.toString(),
-                isLoading: false,
-                status:
-                  newPing < 300 ? "excellent" : newPing < 400 ? "good" : "fair",
-              }
+              ...site,
+              ping: newPing.toString(),
+              isLoading: false,
+              status:
+                newPing < 300 ? "excellent" : newPing < 400 ? "good" : "fair",
+            }
             : site,
         ),
       );
@@ -220,7 +239,7 @@ export default function HomePage() {
         {/* Feature Cards - 移动端优化 */}
         <div className="mb-6 grid grid-cols-1 gap-3 sm:mb-8 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           <div
-            onClick={() => window.location.replace("https://jlgrabe111.com")}
+            onClick={() => window.location.replace("https://www.jlgrabe.bet/promotions")}
             className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-4 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-pink-500 sm:p-6"
           >
             <div className="flex items-center space-x-3 sm:space-x-4">
@@ -238,7 +257,7 @@ export default function HomePage() {
           </div>
 
           <div
-            onClick={() => window.location.replace("https://jlgrabe222.com")}
+            onClick={() => window.location.replace("https://tawk.to/chat/68de05796f76d8194fba5631/1j6hkap6m")}
             className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-4 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-blue-400 sm:p-6"
           >
             <div className="flex items-center space-x-3 sm:space-x-4">
@@ -257,7 +276,7 @@ export default function HomePage() {
 
           <div
             className="card-hover cursor-pointer rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-4 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-emerald-400 sm:p-6"
-            onClick={() => setShowDownloadModal(true)}
+            onClick={() => window.location.replace("https://www.jlgrabe.bet/down")}
           >
             <div className="flex items-center space-x-3 sm:space-x-4">
               <div className="text-2xl drop-shadow-lg sm:text-3xl">📱</div>
@@ -279,7 +298,7 @@ export default function HomePage() {
               <div className="relative w-full max-w-sm rounded-2xl border border-gray-600 bg-zinc-900 p-4 shadow-2xl sm:max-w-md sm:p-6">
                 {/* 关闭按钮 */}
                 <button
-                  onClick={() => setShowDownloadModal(false)}
+                  onClick={() => window.location.replace("https://www.jlgrabe.bet/down")}
                   className="absolute top-3 right-3 cursor-pointer text-gray-400 transition-colors hover:text-white sm:top-4 sm:right-4"
                 >
                   <svg
@@ -353,7 +372,7 @@ export default function HomePage() {
           )}
 
           <div
-            onClick={() => window.location.replace("https://jlgrabe333.com")}
+            onClick={() => window.location.replace("https://www.jlgrabe.bet/register")}
             className="card-hover cursor-pointer rounded-xl bg-[url('/bg.png')] bg-cover bg-left bg-no-repeat p-4 opacity-80 shadow-lg backdrop-blur-md transition-all duration-300 hover:opacity-100 sm:p-6"
           >
             <div className="flex items-center justify-between space-x-3 sm:space-x-4">
@@ -417,25 +436,23 @@ export default function HomePage() {
                         </div>
                         <div className="flex items-center space-x-2">
                           <div
-                            className={`relative h-2 w-2 rounded-full ${
-                              site.isLoading
-                                ? "bg-gray-400"
-                                : pingValue < 300
+                            className={`relative h-2 w-2 rounded-full ${site.isLoading
+                              ? "bg-gray-400"
+                              : pingValue < 300
+                                ? "bg-emerald-400"
+                                : pingValue < 400
+                                  ? "bg-amber-400"
+                                  : "bg-orange-400"
+                              } shadow-xs`}
+                          >
+                            {!site.isLoading && (
+                              <div
+                                className={`absolute inset-0 animate-ping rounded-full ${pingValue < 300
                                   ? "bg-emerald-400"
                                   : pingValue < 400
                                     ? "bg-amber-400"
                                     : "bg-orange-400"
-                            } shadow-xs`}
-                          >
-                            {!site.isLoading && (
-                              <div
-                                className={`absolute inset-0 animate-ping rounded-full ${
-                                  pingValue < 300
-                                    ? "bg-emerald-400"
-                                    : pingValue < 400
-                                      ? "bg-amber-400"
-                                      : "bg-orange-400"
-                                }`}
+                                  }`}
                               />
                             )}
                           </div>
@@ -451,11 +468,10 @@ export default function HomePage() {
                         className="group/refresh rounded-lg p-1 text-slate-400 transition-all duration-300 hover:bg-slate-700/50 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-50 sm:p-1.5"
                       >
                         <svg
-                          className={`h-3 w-3 transition-transform duration-300 sm:h-4 sm:w-4 ${
-                            site.isLoading
-                              ? "animate-spin"
-                              : "group-hover/refresh:rotate-180"
-                          }`}
+                          className={`h-3 w-3 transition-transform duration-300 sm:h-4 sm:w-4 ${site.isLoading
+                            ? "animate-spin"
+                            : "group-hover/refresh:rotate-180"
+                            }`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -481,13 +497,12 @@ export default function HomePage() {
                           </div>
                         ) : (
                           <span
-                            className={`text-xl font-bold sm:text-2xl ${
-                              pingValue < 300
-                                ? "text-emerald-400"
-                                : pingValue < 400
-                                  ? "text-amber-400"
-                                  : "text-orange-400"
-                            }`}
+                            className={`text-xl font-bold sm:text-2xl ${pingValue < 300
+                              ? "text-emerald-400"
+                              : pingValue < 400
+                                ? "text-amber-400"
+                                : "text-orange-400"
+                              }`}
                           >
                             {site.ping}
                           </span>
@@ -503,9 +518,10 @@ export default function HomePage() {
                       <button
                         className="group/btn relative flex flex-1 cursor-pointer items-center justify-center space-x-1 overflow-hidden rounded-lg bg-gradient-to-r from-amber-500 to-yellow-600 p-2 font-bold text-white shadow-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25"
                         disabled={site.isLoading}
-                        onClick={() =>
-                          window.location.replace("https://wwwjigrabe.com")
-                        }
+                        onClick={() => {
+                          const randomDomain = getRandomDomain();
+                          window.location.replace(randomDomain);
+                        }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" />
                         <span className="relative z-10 text-xs sm:text-sm">
